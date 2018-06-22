@@ -1,0 +1,19 @@
+{
+  "name": "kvstore",
+  "version": "1.0.0",
+  "description": "store and retrieve values by keys",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "author": "Greg Banks",
+  "license": "MIT",
+  "dependencies": {
+    "carbon-io": "0.7.x",
+    "redis": "0.2.x",
+    "lodash": "4.17.x"
+  }
+}
