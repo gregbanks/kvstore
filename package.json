@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "carbon-io": "0.7.x",
-    "redis": "0.2.x",
+    "redis": "2.8.x",
     "lodash": "4.17.x"
   }
 }
