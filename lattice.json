@@ -1,0 +1,47 @@
+{
+  "$parameters": {
+    "node_pool": { "type": "string" },
+    "num_instances": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "type": "v1/service",
+
+  "ports": {
+    "8080": {
+      "protocol": "HTTP",
+      "external_access": {
+        "public": true
+      }
+    }
+  },
+
+  "build": {
+    "type": "command_build",
+    "base_image": {
+      "repository": "library/node",
+      "tag": "boron"
+    },
+    "command": ["npm", "install"]
+  },
+  "exec": {
+    "command": [
+      "node",
+      "lib/index.js"
+    ],
+    "environment": {
+      "BIND_PORT": "8080",
+      "REDIS_HOST": "redis.local"
+    }
+  },
+  "health_check": {
+    "http": {
+      "port": 8080,
+      "path": "/status"
+    }
+  },
+
+  "num_instances": "${num_instances}",
+  "node_pool": "${node_pool}"
+}
